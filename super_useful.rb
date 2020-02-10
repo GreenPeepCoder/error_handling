@@ -43,8 +43,14 @@ end
 class BestFriend
   def initialize(name, yrs_known, fav_pastime)
     @name = name
+    unless yrs_known >= 5
+      raise ArgumentError.new "We're not bffs because we've only known each other for #{yrs_known} years"
+    end
     @yrs_known = yrs_known
     @fav_pastime = fav_pastime
+    if @name.empty? || @fav_pastime.empty?
+      raise ArgumentError.new "Tell me your name, and a hobby. Then we can be friends."
+    end
   end
 
   def talk_about_friendship
