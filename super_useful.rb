@@ -21,11 +21,22 @@ def reaction(maybe_fruit)
 end
 
 def feed_me_a_fruit
-  puts "Hello, I am a friendly monster. :)"
 
-  puts "Feed me a fruit! (Enter the name of a fruit:)"
-  maybe_fruit = gets.chomp
-  reaction(maybe_fruit) 
+  begin
+    puts "Hello, I am a friendly monster. :)"
+  
+    puts "Feed me a fruit! (Enter the name of a fruit:)"
+    maybe_fruit = gets.chomp
+    reaction(maybe_fruit) 
+    
+  rescue 
+    if maybe_fruit == "coffee"
+      puts "Thanks for the coffee, but that's not a fruit. Guess again."
+      retry
+    end
+    raise StandardError
+  end
+
 end  
 
 # PHASE 4
