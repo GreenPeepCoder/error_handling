@@ -1,6 +1,12 @@
 # PHASE 2
 def convert_to_int(str)
-  Integer(str)
+  begin
+    Integer(str)
+  rescue => exception
+    puts "Couldn't take #{str} as an arg"
+    puts exception.message
+    return nil
+  end
 end
 
 # PHASE 3
